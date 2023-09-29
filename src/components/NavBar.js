@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 const navItems = [
     {
@@ -10,22 +11,69 @@ const navItems = [
       name: "HOME",
     },
     {
-      path: "/business",
-      name: "BUSINESS",
-    },
-    {
-      path: "/sports",
-      name: "SPORTS",
-    },
-    {
       path: "/national",
-      name: "NATIONAL",
+      name: "राष्ट्रीय समाचार",
 
     },
     {
-      path: "/technology",
-      name: "TECHNOLOGY",
+      path: "/newsstate",
+      name: "राज्य से खबर",
+
     },
+    {
+      path: "/crime",
+      name: "अपराध",
+
+    },
+    {
+      path: "/politics",
+      name: "राजनीति",
+
+    },
+    {
+      path: "/sports",
+      name: "खेल",
+    },
+
+    
+    {
+      path: "/business",
+      name: "व्यापार",
+    },
+    {
+      path: "/employment",
+      name: "रोजगार",
+
+    },
+    
+    {
+      path: "/Entertainment",
+      name: "मनोरंजन",
+
+    },
+   
+    {
+      path: "/Health",
+      name: "हेल्थ",
+      
+    },
+    {
+      path: "/spiritual",
+      name: "अध्यात्",
+      
+    },
+    {
+      path: "/media",
+      name: "मीडिया",
+      
+    },
+    {
+      path: "/author's",
+      name: "लेखक की कलम से",
+      
+    },
+
+
   ];
 
 
@@ -47,6 +95,13 @@ export default function NavBar () {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  const slideRight = () => {
+    console.log("first")
+   
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft += 500;
+    }
+};
   let pathname = usePathname() || "/";
 
   if (pathname.includes("/technology/")) {
@@ -57,7 +112,7 @@ export default function NavBar () {
 
   return (
     <nav
-      className={`mx-auto container shadow-md  flex flexWrap p-5 flex-col md:flex-row items-center ${
+      className={`mx-auto container shadow-md overflow-x-scroll  flex flexWrap p-5 flex-col md:flex-row items-center ${
         isScrolled ? 'sticky top-0 z-30 w-full p-6 bg-black sm:px-4 shadow' : 'bg-blue-500'
       } py-4`}
     >
@@ -65,6 +120,7 @@ export default function NavBar () {
       <nav className="md:ml-auto flex flexWrap items-center text-base justify-center">
         {navItems.map((item, index) => {
           const isActive = item.path === pathname;
+          
           
           return (
             <Link
@@ -78,7 +134,9 @@ export default function NavBar () {
               onMouseLeave={() => setHoveredPath(pathname)}
             >
               <span>{item.name}</span>
+              
               {item.path === hoveredPath && (
+                
                 <motion.div
                   className="absolute bottom-0 left-0 h-full  rounded-md -z-10"
                   layoutId="navbar"
@@ -93,13 +151,19 @@ export default function NavBar () {
                     damping: 9,
                     duration: 0.3,
                   }}
+                  
                 />
+                
               )}
             </Link>
+            
           );
+          
         })}
+        
       </nav>
     </div>
+    
     </nav>
   );
 };
