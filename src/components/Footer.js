@@ -1,5 +1,12 @@
 import React from "react";
+import { Akshar } from "next/font/google";
 import Image from "next/image";
+
+const akshar = Akshar({
+  subsets : ['latin'],
+  weight: '300',
+  display : 'swap'
+})
 
 const Footer = () => {
   return (
@@ -10,18 +17,22 @@ const Footer = () => {
             <div className="container px-5 py-5 mx-auto flex items-center sm:flex-row flex-col">
               <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
                 <img src="/logo1.jpg" alt="" height={100} width={150} />
+                <div className={akshar.className}>
                 <span className="ml-3 text-2xl">
                   RASHTRIYA TV
                   <br />
-                  <p className="text-sm text-gray-500">©2023 RASHTRIYA TV</p>
+                  <div className='text-sm text-gray-500'>
+                    ©2023 RASHTRIYA TV
+                  </div>
                 </span>
+                </div>
               </a>
             </div>
           </div>
 
           <div className="col-span-1 bg-white-200">
             <div className="bg-white-500 p-5">
-              <p className="text-blue-600 text-3xl text-bold ">Contact Info</p>
+              <p className="text-blue-600 text-3xl text-bold ">संपर्क करें</p>
               <a href="#" className="links">
                 <svg
                   className="w-1 h-1"

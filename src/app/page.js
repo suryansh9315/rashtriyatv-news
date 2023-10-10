@@ -13,18 +13,19 @@ import national from './national/page';
 
 const poppins = Poppins({
     subsets:['latin'],
-    weight :'400',
+    style: ['normal'],
+    weight :'700',
   })
 
 export default function Home() {
     
     return (
         <main className="container mx-auto w-full mt-8 px-4">
-            <div className={poppins.className}>
-                <div className='bg-blue-600 p-4 font-titlez rounded-lg mb-3 text-left text-2xl font-bold'>
+                <div className='bg-blue-600 p-4 rounded-lg mb-3 text-left text-2xl'>
+                    <div className={poppins.className}>
                     प्रमुख समाचार
+                    </div>
                 </div>
-            </div>
             {/* //top stories slider */}
             <Swiper
                 slidesPerView={1}
@@ -49,7 +50,11 @@ export default function Home() {
             </Swiper>
             {/* //national link */}
             <Link href='/national'
-                className="flex bg-blue-200 p-4 mt-20 mb-3 rounded-lg text-left text-2xl font-bold  overflow-hidden cursor-pointer">राष्ट्रीय</Link>
+                className="flex bg-blue-200 p-4 mt-20 mb-3 rounded-lg text-left text-2xl overflow-hidden cursor-pointer">
+                <div className={poppins.className}>
+                राष्ट्रीय
+                </div>
+                </Link>
             {/* //national swiper */}
             <Swiper
                 slidesPerView={3}
@@ -128,7 +133,11 @@ export default function Home() {
 
              {/* //sports link */}
             <Link href='/sports'
-                className="flex bg-orange-200 p-4 mt-20 mb-3 rounded-lg text-left text-2xl font-bold  overflow-hidden cursor-pointer">खेल</Link>
+                className="flex bg-orange-200 p-4 mt-20 mb-3 rounded-lg text-left text-2xl font-bold  overflow-hidden cursor-pointer">
+                <div className={poppins.className}>
+                खेल
+                </div>
+                </Link>
             {/* //sports swiper */}
             <Swiper
                 slidesPerView={3}
@@ -207,7 +216,9 @@ export default function Home() {
             
             {/* //business link */}
             <Link href='/business'
-                className="flex bg-blue-200 p-4 mt-20 mb-3 rounded-lg text-left text-2xl font-bold  overflow-hidden cursor-pointer">व्यवसाय</Link>
+                className="flex bg-blue-200 p-4 mt-20 mb-3 rounded-lg text-left text-2xl font-bold  overflow-hidden cursor-pointer">
+                <div className={poppins.className}>व्यवसाय</div>
+                </Link>
             {/* //business swiper */}
             <Swiper
                 slidesPerView={3}

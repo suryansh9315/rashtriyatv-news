@@ -3,7 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Akshar } from 'next/font/google';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+
+const teko = Akshar({
+  subsets : ['latin'],
+  weight : "600",
+  display : 'swap',
+})
 
 const navItems = [
     {
@@ -127,7 +134,7 @@ export default function NavBar () {
               className={`px-[1.92rem] py-0 rounded-md font-bold font-color-white text-lg relative no-underline duration-300 ease-in
                ${
                 isActive ? "text-zinc-900" : "text-zinc-100"
-              }`}
+              } ${teko.className}`}
               data-active={isActive}
               href={item.path}
               onMouseOver={() => setHoveredPath(item.path)}
