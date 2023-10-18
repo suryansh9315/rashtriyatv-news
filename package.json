@@ -12,7 +12,8 @@
     "@next/font": "^13.5.4",
     "flowbite": "^1.8.1",
     "framer-motion": "^10.16.4",
-    "next": "latest",
+    "localtunnel": "^2.0.2",
+    "next": "^13.5.5",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.11.0",
@@ -22,5 +23,10 @@
     "autoprefixer": "latest",
     "postcss": "latest",
     "tailwindcss": "latest"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
