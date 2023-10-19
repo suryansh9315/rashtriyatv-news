@@ -35,7 +35,7 @@ export default function Home() {
       >
         <SwiperSlide>
           <iframe
-            className="rounded-lg"
+            className="rounded-lg md:shrink-0"
             width="100%"
             height="360"
             src="https://www.youtube.com/embed/Xukxjs9VYiI?si=lc-5N4ObkBP4tb6C"
@@ -47,7 +47,7 @@ export default function Home() {
         </SwiperSlide>
         <SwiperSlide>
           <iframe
-            className="rounded-lg"
+            className="rounded-lg md:shrink-0"
             width="100%"
             height="360"
             src="https://www.youtube.com/embed/Xukxjs9VYiI?si=lc-5N4ObkBP4tb6C"

@@ -146,7 +146,7 @@ export default function NavBar() {
 
         <nav className="md:m-auto flex flexWrap items-center text-base justify-center">
           {/* Rest of your code */}
-          {navItems.map((item, index) => (
+          {/* {navItems.map((item, index) => (
               <Link
                 key={item.path}
                 className={`block px-[1.92rem] py-3 rounded-md font-bold font-color-white text-lg no-underline duration-300 ease-in ${
@@ -156,7 +156,7 @@ export default function NavBar() {
               >
                 <div className='sm:hidden'>{item.name}</div>
               </Link>
-            ))}
+            ))} */}
         </nav>
       </div>
     </nav>
