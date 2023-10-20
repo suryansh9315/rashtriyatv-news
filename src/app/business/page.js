@@ -1,77 +1,235 @@
 "use client";
+import React from 'react'
+import { Poppins } from 'next/font/google';
+import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+const poppins = Poppins({
+    subsets: ['latin'],
+    style: ['normal'],
+    weight: '700',
+  });
 
-const navItems = [
-  {
-    path: "/",
-    name: "Home",
-  },
-  {
-    path: "/",
-    name: "Now",
-  },
-  {
-    path: "/",
-    name: "Guestbook",
-  },
-  {
-    path: "/",
-    name: "Writing",
-  },
-];
 
-export default function NavBar() {
-  let pathname = usePathname() || "/";
-
-  if (pathname.includes("/writing/")) {
-    pathname = "/writing";
-  }
-
-  const [hoveredPath, setHoveredPath] = useState(pathname);
-
+const business = () => {
   return (
-    <div className="text-gray-600 body-font">
-      <nav className="md:ml-auto flex flexWrap items-center text-base justify-center">
-        {navItems.map((item, index) => {
-          const isActive = item.path === pathname;
+    <div> <section className="container mx-auto w-full mt-8 px-4">
+    <div className="bg-blue-600 p-4 rounded-lg mb-3 text-left text-2xl">
+    <div className={poppins.className}>व्यापार</div>
+  </div>
+  <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        delay={30}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Pagination,Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <iframe
+            className="rounded-lg md:shrink-0"
+            width="100%"
+            height="360"
+            src="https://www.youtube.com/embed/Xukxjs9VYiI?si=lc-5N4ObkBP4tb6C"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </SwiperSlide>
+        <SwiperSlide>
+          <iframe
+            className="rounded-lg md:shrink-0"
+            width="100%"
+            height="360"
+            src="https://www.youtube.com/embed/Xukxjs9VYiI?si=lc-5N4ObkBP4tb6C"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </SwiperSlide>
+        {/* Add more slides here */}
+      </Swiper>
+<div className="container px-5 py-8 md:py-16 mx-auto">
+  <div className="flex flex-wrap -m-2 md:-m-4">
+    {/* Individual blog items */}
+    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4 ">
+      <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img
+          className="h-64 w-full object-cover object-center"
+          src="https://dummyimage.com/720x400"
+          alt="blog"
+        />
+        <div className="p-4">
           
-          return (
-            <Link
-              key={item.path}
-              className={`px-4 py-2 rounded-md text-sm lg:text-base relative no-underline duration-300 ease-in ${
-                isActive ? "text-zinc-100" : "text-zinc-400"
-              }`}
-              data-active={isActive}
-              href={item.path}
-              onMouseOver={() => setHoveredPath(item.path)}
-              onMouseLeave={() => setHoveredPath(pathname)}
-            >
-              <span>{item.name}</span>
-              {item.path === hoveredPath && (
-                <motion.div
-                  className="absolute bottom-0 left-0 h-full bg-stone-800/80 rounded-md -z-10"
-                  layoutId="navbar"
-                  aria-hidden="true"
-                  style={{
-                    width: "100%",
-                  }}
-                  transition={{
-                    type: "spring",
-                    bounce: 0.25,
-                    stiffness: 130,
-                    damping: 9,
-                    duration: 0.3,
-                  }}
-                />
-              )}
-            </Link>
-          );
-        })}
-      </nav>
-    </div>
-  );
+          <h1 className="text-lg font-medium text-gray-900 mb-3">
+            TITLE
+          </h1>
+          <div className="leading-relaxed mb-3">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </div>
+          
+        </div>
+      </div>
+    </Link>
+    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4">
+      <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img
+          className="h-64 w-full object-cover object-center"
+          src="https://dummyimage.com/720x400"
+          alt="blog"
+        />
+        <div className="p-4">
+          
+          <h1 className="text-lg font-medium text-gray-900 mb-3">
+            TITLE
+          </h1>
+          <div className="leading-relaxed mb-3">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </div>
+          
+        </div>
+      </div>
+    </Link>
+    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4">
+      <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img
+          className="h-64 w-full object-cover object-center"
+          src="https://dummyimage.com/720x400"
+          alt="blog"
+        />
+        <div className="p-4">
+          
+          <h1 className="text-lg font-medium text-gray-900 mb-3">
+            TITLE
+          </h1>
+          <div className="leading-relaxed mb-3">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </div>
+          
+        </div>
+      </div>
+    </Link>
+    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4">
+      <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img
+          className="h-64 w-full object-cover object-center"
+          src="https://dummyimage.com/720x400"
+          alt="blog"
+        />
+        <div className="p-4">
+          
+          <h1 className="text-lg font-medium text-gray-900 mb-3">
+            TITLE
+          </h1>
+          <div className="leading-relaxed mb-3">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </div>
+          
+        </div>
+      </div>
+    </Link>
+    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4">
+      <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img
+          className="h-64 w-full object-cover object-center"
+          src="https://dummyimage.com/720x400"
+          alt="blog"
+        />
+        <div className="p-4">
+          
+          <h1 className="text-lg font-medium text-gray-900 mb-3">
+            TITLE
+          </h1>
+          <div className="leading-relaxed mb-3">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </div>
+          
+        </div>
+      </div>
+    </Link>
+    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4">
+      <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img
+          className="h-64 w-full object-cover object-center"
+          src="https://dummyimage.com/720x400"
+          alt="blog"
+        />
+        <div className="p-4">
+          
+          <h1 className="text-lg font-medium text-gray-900 mb-3">
+            TITLE
+          </h1>
+          <div className="leading-relaxed mb-3">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </div>
+          
+        </div>
+      </div>
+    </Link>
+    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4">
+      <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img
+          className="h-64 w-full object-cover object-center"
+          src="https://dummyimage.com/720x400"
+          alt="blog"
+        />
+        <div className="p-4">
+          
+          <h1 className="text-lg font-medium text-gray-900 mb-3">
+            TITLE
+          </h1>
+          <div className="leading-relaxed mb-3">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </div>
+          
+        </div>
+      </div>
+    </Link>
+    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4">
+      <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+        <img
+          className="h-64 w-full object-cover object-center"
+          src="https://dummyimage.com/720x400"
+          alt="blog"
+        />
+        <div className="p-4">
+          
+          <h1 className="text-lg font-medium text-gray-900 mb-3">
+            TITLE
+          </h1>
+          <div className="leading-relaxed mb-3">
+            Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
+            microdosing tousled waistcoat.
+          </div>
+          
+        </div>
+      </div>
+    </Link>
+
+    {/* Add two more similar blog items here */}
+    {/* You can duplicate the code for each blog item and replace the content and image URLs */}
+  </div>
+</div>
+</section></div>
+  )
 }
+
+export default business
+

@@ -7,19 +7,19 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
 const poppins = Poppins({
-  subsets: ['latin'],
-  style: ['normal'],
-  weight: '700',
-});
+    subsets: ['latin'],
+    style: ['normal'],
+    weight: '700',
+  });
 
 
-const BlogSection = () => {
+const Health = () => {
   return (
-
     <div> <section className="container mx-auto w-full mt-8 px-4">
     <div className="bg-blue-600 p-4 rounded-lg mb-3 text-left text-2xl">
-    <div className={poppins.className}>व्यापार</div>
+    <div className={poppins.className}>हेल्थ</div>
   </div>
   <Swiper
         slidesPerView={1}
@@ -34,7 +34,16 @@ const BlogSection = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-        <iframe width="100%" height="360" src="https://www.youtube.com/embed/fRj1CAm--6k?si=0PazqRQe7sx2yZZs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe
+            className="rounded-lg md:shrink-0"
+            width="100%"
+            height="360"
+            src="https://www.youtube.com/embed/Xukxjs9VYiI?si=lc-5N4ObkBP4tb6C"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
         </SwiperSlide>
         <SwiperSlide>
           <iframe
@@ -219,7 +228,8 @@ const BlogSection = () => {
   </div>
 </div>
 </section></div>
-  );
-};
+  )
+}
 
-export default BlogSection;
+export default Health
+
