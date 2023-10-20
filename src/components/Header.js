@@ -3,8 +3,8 @@ import React from "react";
 import { Bakbak_One } from "next/font/google";
 
 const bakbak = Bakbak_One({
-  subsets: ['latin'],
-  weight: '400',
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const Header = () => {
@@ -12,11 +12,20 @@ const Header = () => {
     <header className="text-gray-600 body-font">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="bg-white-200 p-2">
-            <div className="mx-auto container flex flex-col md:flex-row items-center justify-center">
-              <img src="/logo1.jpg" alt="" height={80} width={100} />
+          <div className="bg-yellow-200 p-2">
+            <div className="mx-auto container flex flex-col items-center sm:justify-items-center md:flex-row">
+              <img
+                className="md:mr-4"
+                src="/logo1.jpg"
+                alt=""
+                height={80}
+                width={100}
+              />
               <div className={bakbak.className}>
-                <Link href="/" className="flex link link-underline link-underline-black title-font font-medium items-center textWh mb-2 md:mb-0 ml-4 text-2xl md:text-4xl text-black">
+                <Link
+                  href="/"
+                  className="flex text-center link link-underline link-underline-black title-font font-medium items-center textWh mb-2 md:mb-0 text-2xl md:text-4xl text-black md:text-left"
+                >
                   RASHTRIYA TV
                   <br />
                   राष्ट्रीय टीवी
@@ -25,20 +34,20 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="bg-white-200 p-2">
-            <div className="flex items-center justify-end pr-2">
+          <div className="bg-yellow-200 p-2">
+            <div className="flex items-center justify-end">
               <form>
-                <div className="relative w-full">
+                <div className="relative w-full md:w-auto md:items-center">
                   <input
                     type="search"
                     id="search-dropdown"
-                    className="block p-2.5 w-full z-24 text-base text-gray-900 bg-gray-50 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+                    className="block p-2.5 w-full md:w-auto z-24 text-base text-white bg-gray-700 rounded-lg border-l-gray-700 border-gray-600 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400"
                     placeholder="खोज..."
                     required
                   />
                   <button
                     type="submit"
-                    className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-blue-600 rounded-r-lg border border-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-400 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-blue-600 rounded-r-lg border border-blue-800 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800"
                   >
                     <svg
                       className="w-4 h-4 hover:animate-ping"
