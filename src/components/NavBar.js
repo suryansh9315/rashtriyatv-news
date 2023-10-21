@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Akshar } from "next/font/google";
 import { MdMenu } from "react-icons/md"; //import menu icon
-import { RxCross2 } from "react-icons/rx"; 
+import { RxCross2 } from "react-icons/rx";
 
 const teko = Akshar({
   subsets: ["latin"],
@@ -89,6 +89,15 @@ export default function NavBar() {
     };
   }, []);
 
+  const slideRight = () => { 
+    console.log("first")
+
+    if (sliderRef.current){
+      sliderRef.current.scrollLeft += 500;
+    }
+  };
+
+
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
@@ -109,9 +118,9 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`mx-auto rounded-xl container shadow-md flex flex-col md:flex-row ${
+      className={`mx-auto rounded-xl container shadow-md flex flex-col md:flex-row pb-2 ${
         isScrolled
-          ? "sticky top-0 z-30 w-full p-0 m-0 bg-blue-600 sm:px-2 shadow pt-2 pr-2"
+          ? "sticky top-0 z-30 w-full p-0 m-0 bg-blue-600 sm:px-2 shadow pt-2 pr-2 pb-2"
           : "bg-orange-400"
       } `}
     >
@@ -119,44 +128,49 @@ export default function NavBar() {
         {showDropdown ? (
           // Render the dropdown menu when showDropdown is true
           <div className="md:hidden" onClick={closeDropdown}>
-            <div className="container flex flex-col items-end text-white" onClick={toggleDropdown}>
+            <div
+              className="container flex flex-col items-end text-white"
+              onClick={toggleDropdown}
+            >
               <RxCross2 className="text-2xl cursor-pointer" />
             </div>
             {navItems.map((item, index) => (
               <Link
                 key={item.path}
-                className={`block px-[1.92rem] py-3 hover:text-zinc-700 -md text-white text-lg no-underline duration-300 ease-in ${
+                className={`block px-[1.92rem] py-2 hover:text-zinc-700 text-white text-lg no-underline duration-300 ease-in ${
                   item.path === pathname ? "text-zinc-900" : "text-zinc-100"
                 } ${teko.className}`}
                 href={item.path}
               >
-                <div className="">{item.name}</div>
+                <div className=""> {item.name} </div>
               </Link>
             ))}
           </div>
         ) : (
           // Render the mobile menu icon when showDropdown is false
-          <div className="md:hidden container flex flex-col items-end text-white" onClick={toggleDropdown}>
+          <div
+            className="md:hidden container flex flex-col items-end text-white"
+            onClick={toggleDropdown}
+          >
             <MdMenu className="text-2xl cursor-pointer" />
           </div>
         )}
 
-      </div>
-      
-        <nav className="md:mx-auto flex flexWrap items-center text-base justify-center">
-          {/* Rest of your code */}
+        <nav className="mx-auto hidden md:flex flexWrap items-center text-base justify-center">
+          {/* Rest of your code            */}
           {navItems.map((item, index) => (
-              <Link
-                key={item.path}
-                className={`block px-[1.92rem] py-1 rounded-md text-white text-sm no-underline duration-300 ease-in ${
-                  item.path === pathname ? 'text-zinc-900' : 'text-zinc-100'
-                } ${teko.className}`}
-                href={item.path}
-              >
-                <div className=''>{item.name}</div>
-              </Link>
-            ))}
+            <Link
+              key={item.path}
+              className={`block px-[1.92rem] py-1  rounded-md text-white text-sm no-underline duration-300 ease-in ${
+                item.path === pathname ? "text-zinc-900" : "text-zinc-100"
+              } ${teko.className}`}
+              href={item.path}
+            >
+              <div> {item.name} </div>
+            </Link>
+          ))}
         </nav>
+      </div>
     </nav>
   );
 }
