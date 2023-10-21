@@ -13,7 +13,7 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="bg-yellow-200 p-2">
-            <div className="mx-auto container flex flex-col items-center sm:justify-items-center md:flex-row">
+            <div className="mx-auto pt-7 container flex flex-col items-center sm:justify-items-center md:flex-row">
               <img
                 className="md:mr-4"
                 src="/logo1.jpg"
