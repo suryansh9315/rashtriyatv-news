@@ -156,12 +156,12 @@ export default function NavBar() {
           </div>
         )}
 
-        <nav className="mx-auto hidden md:flex flexWrap items-center text-base justify-center">
-          {/* Rest of your code            */}
+        <nav className="mx-auto w-screen h-16 hidden md:flex flexWrap items-center text-base justify-center overflow-x-auto">
+          {/* Rest of your code*/}
           {navItems.map((item, index) => (
             <Link
               key={item.path}
-              className={`block px-[1.92rem] py-1  rounded-md text-white text-sm no-underline duration-300 ease-in ${
+              className={`px-[1.92rem] py-1 min-w-max h-16 flex space-x-10 rounded-md text-white text-sm no-underline duration-300 ease-in ${
                 item.path === pathname ? "text-zinc-900" : "text-zinc-100"
               } ${teko.className}`}
               href={item.path}
@@ -170,6 +170,7 @@ export default function NavBar() {
             </Link>
           ))}
         </nav>
+        
       </div>
     </nav>
   );
