@@ -118,13 +118,13 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`mx-auto rounded-xl container shadow-md flex flex-col md:flex-row pb-2 ${
+      className={`rounded-xl w-screen h-7 container shadow-md flex flex-col md:flex-row pb-2 ${
         isScrolled
           ? "sticky top-0 z-30 w-full p-0 m-0 bg-blue-600 sm:px-2 shadow pt-2 pr-2 pb-2"
           : "bg-orange-400"
       } `}
     >
-      <div className="text-gray-600 body-font pt-2 pr-2">
+      <div className="text-gray-600 w-screen body-font pt-2 ">
         {showDropdown ? (
           // Render the dropdown menu when showDropdown is true
           <div className="md:hidden" onClick={closeDropdown}>
@@ -132,7 +132,7 @@ export default function NavBar() {
               className="container flex flex-col items-end text-white"
               onClick={toggleDropdown}
             >
-              <RxCross2 className="text-2xl cursor-pointer" />
+              <RxCross2 className="text-2xl cursor-pointer pr-2" />
             </div>
             {navItems.map((item, index) => (
               <Link
@@ -152,16 +152,16 @@ export default function NavBar() {
             className="md:hidden container flex flex-col items-end text-white"
             onClick={toggleDropdown}
           >
-            <MdMenu className="text-2xl cursor-pointer" />
+            <MdMenu className="text-2xl cursor-pointer pr-2" />
           </div>
         )}
-
-        <nav className="mx-auto w-screen h-16 hidden md:flex flexWrap items-center text-base justify-center overflow-x-auto">
+     
+        <nav className="md:px-2 lg:px-4 xl:px-6 w-screen h-7 hidden md:flex lg:flex xl:flex flexWrap md:items-start lg:items-center xl:items-center text-base md:justify-start xl:justify-center lg:justify-start overflow-x-auto">
           {/* Rest of your code*/}
           {navItems.map((item, index) => (
             <Link
               key={item.path}
-              className={`px-[1.92rem] py-1 min-w-max h-16 flex space-x-10 rounded-md text-white text-sm no-underline duration-300 ease-in ${
+              className={`px-2  py-1 min-w-max h-7 flex rounded-md text-white text-sm no-underline duration-300 ease-in ${
                 item.path === pathname ? "text-zinc-900" : "text-zinc-100"
               } ${teko.className}`}
               href={item.path}
