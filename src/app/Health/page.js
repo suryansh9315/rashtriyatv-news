@@ -62,7 +62,7 @@ const Health = () => {
 <div className="container px-5 py-8 md:py-16 mx-auto">
   <div className="flex flex-wrap -m-2 md:-m-4">
     {/* Individual blog items */}
-    <Link href="/" className="p-2 md:w-1/2 lg:w-1/4 md:p-4 ">
+    <Link href="/" className="p-1 md:w-1/4 lg:w-1/6 md:p-2 ">
       <div className="relative border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
         <img
           className="h-64 w-full object-cover object-center"

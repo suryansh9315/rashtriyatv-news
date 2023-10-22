@@ -65,7 +65,7 @@ const navItems = [
     name: "मीडिया",
   },
   {
-    path: "/author's",
+    path: "/authors",
     name: "लेखक की कलम से",
   },
 ];
@@ -125,7 +125,7 @@ export default function NavBar() {
             {navItems.map((item, index) => (
               <Link
                 key={item.path}
-                className={`block px-[1.92rem] py-3 hover:text-zinc-700 -md text-white text-lg no-underline duration-300 ease-in ${
+                className={`block px-[1.92rem] py-3 hover:text-zinc-700 -md  text-white text-lg no-underline duration-300 ease-in ${
                   item.path === pathname ? "text-zinc-900" : "text-zinc-100"
                 } ${teko.className}`}
                 href={item.path}
@@ -143,7 +143,7 @@ export default function NavBar() {
 
       </div>
       
-        <nav className="md:mx-auto flex flexWrap items-center text-base justify-center">
+        <nav className="md:mx-auto sm-hidden md overflow-hidden flex flexWrap items-center text-base justify-center">
           {/* Rest of your code */}
           {navItems.map((item, index) => (
               <Link

@@ -64,6 +64,8 @@ export default function Home() {
         <div className={poppins.className}>राष्ट्रीय</div>
       </Link>
       {/* National Swiper */}
+      
+      
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -75,6 +77,7 @@ export default function Home() {
       >
         <SwiperSlide>
           {/* Your national content */}
+          
         </SwiperSlide>
         {/* Add more national content slides here */}
       </Swiper>
