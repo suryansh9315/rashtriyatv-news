@@ -35,7 +35,7 @@ const Header = () => {
           </div>
 
           <div className="bg-yellow-200 p-2">
-            <div className="flex items-center justify-end">
+            <div className="flex place-items-center justify-center md:place-items-end md:justify-end">
               <form>
                 <div className="relative w-full md:w-auto md:items-center">
                   <input
