@@ -118,13 +118,13 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`mx-auto rounded-xl container xl:w-screen xl:items-center xl:justify-center shadow-md flex flex-col md:flex-row pb-2 ${
+      className={`mx-auto rounded-xl container lg:w-screen xl:w-screen lg:items-center xl:items-center lg:justify-center xl:justify-center shadow-md flex flex-col md:flex-row pb-2 pt-2 pr-2 ${
         isScrolled
           ? "sticky top-0 z-30 w-full p-0 m-0 bg-blue-600 sm:px-2 shadow pt-2 pr-2 pb-2"
           : "bg-orange-400"
       } `}
     >
-      <div className="text-gray-600 body-font pt-2 ">
+      <div className="text-gray-600 body-font ">
         {showDropdown ? (
           // Render the dropdown menu when showDropdown is true
           <div className="md:hidden" onClick={closeDropdown}>
@@ -137,12 +137,12 @@ export default function NavBar() {
             {navItems.map((item, index) => (
               <Link
                 key={item.path}
-                className={`block px-[1.92rem] py-2 hover:text-zinc-700 text-white text-lg no-underline duration-300 ease-in ${
+                className={`block px-[1.92rem] py-2 text-white text-lg no-underline duration-300 ease-in ${
                   item.path === pathname ? "text-zinc-900" : "text-zinc-100"
                 } ${teko.className}`}
                 href={item.path}
               >
-                <div className=""> {item.name} </div>
+                <div className="hover:text-zinc-700"> {item.name} </div>
               </Link>
             ))}
           </div>
@@ -152,20 +152,20 @@ export default function NavBar() {
             className="md:hidden container flex flex-col items-end text-white"
             onClick={toggleDropdown}
           >
-            <MdMenu className="text-2xl cursor-pointer pr-2" />
+            <MdMenu className="text-3xl cursor-pointer pr-2" />
           </div>
         )}
-        <nav className="md:px-2 lg:px-4 xl:px-2 w-screen h-7 hidden md:flex lg:flex xl:flex flexWrap md:items-start lg:items-start xl:items-start text-base md:justify-start lg:justify-center xl:justify-center">
+        <nav className="md:px-2 lg:px-4 xl:px-2 w-screen h-7 hidden md:flex lg:flex xl:flex flexWrap md:items-start lg:items-start xl:items-start text-base md:justify-start lg:justify-center xl:justify-center xl:mb-2">
           {/* Rest of your code*/}
           {navItems.map((item, index) => (
             <Link
               key={item.path}
-              className={`px-2 lg:px-4 py-1 min-w-max h-7 flex rounded-md text-white text-sm no-underline duration-300 ease-in ${
+              className={`px-2 lg:px-4 py-1 min-w-max lg:text-[0.88rem] xl:text-lg h-7 flex rounded-md text-white text-sm no-underline  ${
                 item.path === pathname ? "text-zinc-900" : "text-zinc-100"
               } ${teko.className}`}
               href={item.path}
             >
-              <div> {item.name} </div>
+              <div className="hover:text-zinc-700 duration-300 ease-in"> {item.name} </div>
             </Link>
           ))}
         </nav>
