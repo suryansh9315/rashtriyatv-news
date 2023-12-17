@@ -1,124 +1,253 @@
-"use client"
-import Link from 'next/link';
-import React from 'react';
-import { Poppins } from 'next/font/google';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+"use client";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { Poppins } from "next/font/google";
+import ClipLoader from "react-spinners/ClipLoader";
+import NewsSection from "@/components/NewsSection";
+import NewsCarousel from "@/components/NewsCarousel";
+import YoutubeSlider from "@/components/YoutubeSlider";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  style: ['normal'],
-  weight: '700',
+  subsets: ["latin"],
+  style: ["normal"],
+  weight: "700",
 });
 
+const tempVideos = [
+  {
+    src: "https://www.youtube.com/embed/Qwm6BSGrOq0?si=WU4ckJVRbc91Cc0S",
+  },
+  {
+    src: "https://www.youtube.com/embed/m5jRsCQfwXA?si=4lE1Nx-HyZJoKDCN",
+  },
+  {
+    src: "https://www.youtube.com/embed/HrnrqYxYrbk?si=IRKmj2OekSvbtMuW",
+  },
+];
+
+const tempBlogs = [
+  {
+    heading: "3 ways to implement infinite scroll in React",
+    subHeading:
+      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
+    image_section_1: {
+      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
+      type: "",
+    },
+  },
+  {
+    heading: "3 ways to implement infinite scroll in React",
+    subHeading:
+      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
+    image_section_1: {
+      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
+      type: "",
+    },
+  },
+  {
+    heading: "3 ways to implement infinite scroll in React",
+    subHeading:
+      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
+    image_section_1: {
+      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
+      type: "",
+    },
+  },
+  {
+    heading: "3 ways to implement infinite scroll in React",
+    subHeading:
+      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
+    image_section_1: {
+      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
+      type: "",
+    },
+  },
+];
+
 export default function Home() {
-  return (
-    <main className="container mx-auto w-full mt-8 px-4">
-      <div className="bg-blue-600 p-4 rounded-lg mb-3 text-left text-2xl">
-        <div className={poppins.className}>प्रमुख समाचार</div>
+  const [loading, setLoading] = useState(true);
+  const [viral, setViral] = useState([]);
+  const [national, setNational] = useState([]);
+  const [state, setState] = useState([]);
+  const [crime, setCrime] = useState([]);
+  const [politics, setPolitics] = useState([]);
+  const [sports, setSports] = useState([]);
+  const [business, setBusiness] = useState([]);
+  const [employment, setEmployment] = useState([]);
+  const [entertainment, setEntertainment] = useState([]);
+  const [health, setHealth] = useState([]);
+  const [spiritual, setSpiritual] = useState([]);
+  const [media, setMedia] = useState([]);
+  const [author, setAuthor] = useState([]);
+  const [podcast, setPodcast] = useState([]);
+  const [videos, setVideos] = useState([]);
+
+  const fetchNewsCategory = async (tag, setList) => {
+    try {
+      const res = await fetch(
+        "http://rashtriya-tv-nodejs-env.eba-4gfrfqri.us-east-1.elasticbeanstalk.com/api/blogs/getBlogsByTag/" +
+          tag,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await res.json();
+      console.log(data);
+      if (res.status === 200) {
+        setList(data.result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchAllNews = async () => {
+    await fetchNewsCategory("viral", setViral);
+    await fetchNewsCategory("national", setNational);
+    await fetchNewsCategory("state", setState);
+    await fetchNewsCategory("crime", setCrime);
+    await fetchNewsCategory("politics", setPolitics);
+    await fetchNewsCategory("sports", setSports);
+    setLoading(false);
+    await fetchNewsCategory("business", setBusiness);
+    await fetchNewsCategory("employment", setEmployment);
+    await fetchNewsCategory("entertainment", setEntertainment);
+    await fetchNewsCategory("health", setHealth);
+    await fetchNewsCategory("spiritual", setSpiritual);
+    await fetchNewsCategory("media", setMedia);
+    await fetchNewsCategory("author", setAuthor);
+    await fetchNewsCategory("podcast", setPodcast);
+  };
+
+  useEffect(() => {
+    fetchAllNews();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ClipLoader
+          color={"#000"}
+          loading={loading}
+          size={60}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
       </div>
-      {/* Top Stories Slider */}
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        loop={true}
-        delay={30}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Pagination,Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <iframe
-            className="rounded-lg "
-            width="100%"
-            height="360"
-            src="https://www.youtube.com/embed/Xukxjs9VYiI?si=lc-5N4ObkBP4tb6C"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-        </SwiperSlide>
-        <SwiperSlide>
-          <iframe
-            className="rounded-lg md:shrink-0"
-            width="100%"
-            height="360"
-            src="https://www.youtube.com/embed/Xukxjs9VYiI?si=lc-5N4ObkBP4tb6C"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-        </SwiperSlide>
-        {/* Add more slides here */}
-      </Swiper>
-      {/* National Link */}
-      <Link href="/national" className="flex bg-blue-200 p-4 mt-8 mb-3 rounded-lg text-left text-2xl cursor-pointer">
-        <div className={poppins.className}>राष्ट्रीय</div>
-      </Link>
-      {/* National Swiper */}
-      
-      
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          {/* Your national content */}
-          
-        </SwiperSlide>
-        {/* Add more national content slides here */}
-      </Swiper>
-      {/* Sports Link */}
-      <Link href="/sports" className="flex bg-orange-200 p-4 mt-8 mb-3 rounded-lg text-left text-2xl font-bold cursor-pointer">
-        <div className={poppins.className}>खेल</div>
-      </Link>
-      {/* Sports Swiper */}
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          {/* Your sports content */}
-        </SwiperSlide>
-        {/* Add more sports content slides here */}
-      </Swiper>
-      {/* Business Link */}
-      <Link href="/business" className="flex bg-blue-200 p-4 mt-8 mb-3 rounded-lg text-left text-2xl font-bold cursor-pointer">
-        <div className={poppins.className}>व्यवसाय</div>
-      </Link>
-      {/* Business Swiper */}
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          {/* Your business content */}
-        </SwiperSlide>
-        {/* Add more business content slides here */}
-      </Swiper>
-    </main>
+    );
+  }
+
+  return (
+    <div className="max-w-7xl mx-auto my-10 gap-10 flex flex-col">
+      <div className="flex gap-5 items-center justify-around">
+        <YoutubeSlider list={tempVideos} />
+        <div className="bg-[#fff] w-full gap-3 hidden xl:flex flex-col max-h-[450px] h-full pl-4 pt-4 pb-5 pr-2 rounded-md shadow-sm overflow-scroll">
+          <Link
+            href={"/news/viral"}
+            className="text-3xl text-[#F97316] font-semibold px-4 py-1 rounded-md cursor-pointer"
+          >
+            खबर वायरल है
+          </Link>
+          <hr />
+          {viral.length === 0 && (
+            <div className="flex items-center justify-center my-28 text-xl">
+              Not enough news articles to show.
+            </div>
+          )}
+          {viral?.map((newsItem) => (
+            <div className="flex gap-3 cursor-pointer py-1" key={newsItem._id}>
+              <img
+                src={newsItem?.image_section_1.src}
+                className="w-48 object-contain rounded-md"
+              />
+              <div className="text-base">
+                {newsItem?.subHeading.substring(0, 120)}...
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <NewsSection
+        title={"राष्ट्रीय समाचार"}
+        list={national}
+        customStyles={"text-[#22C55E]"}
+        link={"/news/national"}
+      />
+      <NewsCarousel
+        title={"राज्य खबर"}
+        list={state}
+        customStyles={"text-[#EF4444]"}
+        link={"/news/state"}
+      />
+      <NewsSection
+        title={"अपराध"}
+        list={crime}
+        customStyles={"text-[#3B82F6]"}
+        link={"/news/crime"}
+      />
+      <NewsCarousel
+        title={"राजनीति"}
+        list={politics}
+        customStyles={"text-[#EC4899]"}
+        link={"/news/politics"}
+      />
+      <NewsSection
+        title={"खेल"}
+        list={sports}
+        customStyles={"text-[#71717A]"}
+        link={"/news/sports"}
+      />
+      <NewsCarousel
+        title={"व्यापार"}
+        list={business}
+        customStyles={"text-[#22C55E]"}
+        link={"/news/business"}
+      />
+      <NewsSection
+        title={"रोजगार"}
+        list={employment}
+        customStyles={"text-[#EAB308]"}
+        link={"/news/employment"}
+      />
+      <NewsCarousel
+        title={"मनोरंजन"}
+        list={entertainment}
+        customStyles={"text-[#14B8A6]"}
+        link={"/news/entertainment"}
+      />
+      <NewsSection
+        title={"हेल्थ"}
+        list={health}
+        customStyles={"text-[#8B5CF6]"}
+        link={"/news/health"}
+      />
+      <NewsCarousel
+        title={"अध्यात्"}
+        list={spiritual}
+        customStyles={"text-[#F43F5E]"}
+        link={"/news/spiritual"}
+      />
+      <NewsSection
+        title={"मीडिया"}
+        list={media}
+        customStyles={"text-[#000]"}
+        link={"/news/media"}
+      />
+      <NewsCarousel
+        title={"लेखक की कलम से"}
+        list={author}
+        customStyles={"text-[#F97316]"}
+        link={"/news/author"}
+      />
+      <NewsSection
+        title={"पॉडकास्ट"}
+        list={podcast}
+        customStyles={"text-[#10B981]"}
+        link={"/news/podcast"}
+      />
+    </div>
   );
 }

@@ -1,87 +1,141 @@
+"use client";
 import React from "react";
-import { Akshar } from "next/font/google";
-import Image from "next/image";
+import { TbPhoneCall } from "react-icons/tb";
+import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import { RiInstagramFill } from "react-icons/ri";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const akshar = Akshar({
-  subsets: ["latin"],
-  weight: "300",
-  display: "swap",
-});
+const navLinks = [
+  {
+    title: "घर",
+    link: "/",
+  },
+  {
+    title: "राष्ट्रीय समाचार",
+    link: "/news/national",
+  },
+  {
+    title: "राज्य खबर",
+    link: "/news/state",
+  },
+  {
+    title: "अपराध",
+    link: "/news/crime",
+  },
+  {
+    title: "राजनीति",
+    link: "/news/politics",
+  },
+  {
+    title: "खेल",
+    link: "/news/sports",
+  },
+  {
+    title: "व्यापार",
+    link: "/news/business",
+  },
+
+  {
+    title: "रोजगार",
+    link: "/news/employment",
+  },
+  {
+    title: "मनोरंजन",
+    link: "/news/entertainment",
+  },
+  {
+    title: "हेल्थ",
+    link: "/news/health",
+  },
+
+  {
+    title: "अध्यात्",
+    link: "/news/spiritual",
+  },
+  {
+    title: "मीडिया",
+    link: "/news/media",
+  },
+
+  {
+    title: "लेखक की कलम से",
+    link: "/news/author",
+  },
+  {
+    title: "खबर वायरल है",
+    link: "/news/viral",
+  },
+  {
+    title: "पॉडकास्ट",
+    link: "/news/podcast",
+  },
+];
 
 const Footer = () => {
+  const pathname = usePathname() || "/";
+
   return (
-    <div className="container mx-auto w-full mt-8 px-4">
-      <footer className="text-gray-600 body-font bg-black">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-
-          <div className="bg-yellow-200 px-4 mt-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 ">
-              <div className="container mx-auto py-5 flex flex-col sm:flex-row items-center">
-                <a className="flex title-font font-medium items-center text-gray-900 md:justify-start justify-center">
-                  <img src="/logo1.jpg" alt="" height={100} width={150} />
-                  <div className={akshar.className}>
-                    <div className="mt-2 sm:mt-0 ml-2 text-xl text-center sm:text-left">
-                      RASHTRIYA TV
-                      <br />
-                      <div className="text-sm text-gray-500 mt-2 sm:mt-0 ml-1  text-center sm:text-left">
-                        ©2023 RASHTRIYA TV
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-green-200 px-4 mt-1 pt-5">
-            <div className={akshar.className}>
-              <div className="text-blue-600 text-2xl">संपर्क करें</div>
-            <ul className="list-disc list-inside">
-              <li className="mb-2">
-                <a href="#" className="links">
-                  +91-9911872414
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#" className="links">
-                  tanish
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#" className="links">
-                  vashisth
-                </a>
-              </li>
-            </ul>
-            </div>
-          </div>
-
-          <div className="bg-red-200 px-4 mt-1 pt-5">
-          <div className={akshar.className}>
-              <div className="text-blue-600 text-2xl">समाचार पत्रिका</div>
-              <div>नवीनतम अपड</div>
-              <form
-                action="https://formsubmit.co/vashisthtanish2069@gmail.com"
-                method="POST"
-                id="form"
+    <div className="bg-[#fff] shadow rounded-xl pt-20 pb-28 px-10 flex justify-center gap-28 flex-wrap">
+      <div className="w-[300px] flex flex-col gap-5">
+        <img src="/logo1.jpg" className="w-40 object-contain" />
+        <div className="text-black">
+          Sed ut perspiciatis undmnis is iste natus error sit amet voluptatem
+          totam rem aperiam.
+        </div>
+        <div className="flex items-center gap-3">
+          <TbPhoneCall className="text-blue-600 h-8 w-8" />
+          <div className="text-black">+012 (345) 678 99</div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-5">
+        <div className="font-semibold text-xl text-black">News</div>
+        <div className="flex gap-16">
+          <div className="flex flex-col gap-2">
+            {navLinks.slice(0, 8).map((link) => (
+              <Link
+                href={link.link}
+                className={`cursor-pointer hover:text-blue-600 transition-all duration-150 ease-in ${
+                  pathname === link.link ? "text-blue-600" : "text-black"
+                }`}
+                key={link.title}
               >
-                <input type="hidden" name="_captcha" value="false" />
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder=" Email Address"
-                  id="data"
-                  className="w-44 my-1 mr-2 border-2 border-orange-500 rounded-lg"
-                />
-                <button className="my-1 mb-2 rounded-xl bg-blue-600 py-1 px-2 text-white hover:bg-blue-8002">
-                  सदस्यता
-                </button>
-              </form>
-            </div>
+                {link.title}
+              </Link>
+            ))}
+          </div>
+          <div className="flex flex-col gap-2">
+            {navLinks.slice(8).map((link) => (
+              <Link
+                href={link.link}
+                className={`cursor-pointer hover:text-blue-600 transition-all duration-150 ease-in ${
+                  pathname === link.link ? "text-blue-600" : "text-black"
+                }`}
+                key={link.title}
+              >
+                {link.title}
+              </Link>
+            ))}
           </div>
         </div>
-      </footer>
+      </div>
+      <div className="w-[300px] flex flex-col gap-5">
+        <div className="font-semibold text-xl text-black">Follow Us On</div>
+        <div className="flex items-center gap-5">
+          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer">
+            <FaFacebookF className="text-blue-600 h-5 w-5" />
+          </div>
+          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer">
+            <FaTwitter className="text-blue-600 h-5 w-5" />
+          </div>
+          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer">
+            <RiInstagramFill className="text-blue-600 h-5 w-5" />
+          </div>
+          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer">
+            <FaYoutube className="text-blue-600 h-5 w-5" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
