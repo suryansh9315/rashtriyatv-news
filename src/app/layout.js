@@ -26,7 +26,8 @@ export default function RootLayout({ children }) {
 // Youtube Carousel ---- backend + admin
 // Tags change ---- backend + admin
 // Recent News Article ---- backend
+
 // Responsive ----- news + admin
-// Search box ---- news
 // Social Media Links ---- news
 
+// Search box ---- news
