@@ -24,12 +24,12 @@ const YoutubeSlider = ({ list }) => {
         modules={[Pagination, Navigation, Autoplay]}
       >
         {list?.map((video) => (
-          <SwiperSlide key={video?.src}>
+          <SwiperSlide key={video?.yt}>
             <iframe
               className="rounded-lg "
               width="800"
               height="450"
-              src={video?.src}
+              src={video?.yt}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

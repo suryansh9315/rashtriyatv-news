@@ -6,6 +6,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import NewsSection from "@/components/NewsSection";
 import NewsCarousel from "@/components/NewsCarousel";
 import YoutubeSlider from "@/components/YoutubeSlider";
+import { useRouter } from "next/navigation";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -65,7 +66,9 @@ const tempBlogs = [
 ];
 
 export default function Home() {
+  const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [ytList, setYtList] = useState([]);
   const [viral, setViral] = useState([]);
   const [national, setNational] = useState([]);
   const [state, setState] = useState([]);
@@ -95,7 +98,6 @@ export default function Home() {
         }
       );
       const data = await res.json();
-      console.log(data);
       if (res.status === 200) {
         setList(data.result);
       }
@@ -104,14 +106,36 @@ export default function Home() {
     }
   };
 
+  const fetchYtCarousel = async () => {
+    try {
+      const res = await fetch(
+        "http://rashtriya-tv-nodejs-env.eba-4gfrfqri.us-east-1.elasticbeanstalk.com/api/blogs/getYtList",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await res.json();
+      if (res.status === 200) {
+        console.log(data)
+        setYtList(data.list);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const fetchAllNews = async () => {
+    await fetchYtCarousel()
     await fetchNewsCategory("viral", setViral);
     await fetchNewsCategory("national", setNational);
     await fetchNewsCategory("state", setState);
     await fetchNewsCategory("crime", setCrime);
+    setLoading(false);
     await fetchNewsCategory("politics", setPolitics);
     await fetchNewsCategory("sports", setSports);
-    setLoading(false);
     await fetchNewsCategory("business", setBusiness);
     await fetchNewsCategory("employment", setEmployment);
     await fetchNewsCategory("entertainment", setEntertainment);
@@ -143,7 +167,7 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto my-10 gap-10 flex flex-col">
       <div className="flex gap-5 items-center justify-around">
-        <YoutubeSlider list={tempVideos} />
+        <YoutubeSlider list={ytList} />
         <div className="bg-[#fff] w-full gap-3 hidden xl:flex flex-col max-h-[450px] h-full pl-4 pt-4 pb-5 pr-2 rounded-md shadow-sm overflow-scroll">
           <Link
             href={"/news/viral"}
@@ -158,7 +182,11 @@ export default function Home() {
             </div>
           )}
           {viral?.map((newsItem) => (
-            <div className="flex gap-3 cursor-pointer py-1" key={newsItem._id}>
+            <div
+              className="flex gap-3 cursor-pointer py-1"
+              key={newsItem._id}
+              onClick={() => router.push("/newsArticle/" + newsItem._id)}
+            >
               <img
                 src={newsItem?.image_section_1.src}
                 className="w-48 object-contain rounded-md"

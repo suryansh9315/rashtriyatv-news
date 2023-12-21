@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 
@@ -67,6 +68,7 @@ const tempBlogs = [
 ];
 
 const page = ({ params }) => {
+  const router = useRouter()
   const [loading, setLoading] = useState(true);
   const [newsList, setNewsList] = useState([]);
   const [recentNewsList, setRecentNewsList] = useState([]);
@@ -195,20 +197,21 @@ const page = ({ params }) => {
           {newsList?.map((item, index) => (
             <>
               <div
-                key={item.heading}
+                key={item?.heading}
                 className="flex justify-center cursor-pointer h-[250px]"
+                onClick={() => router.push("/newsArticle/" + item?._id)}
               >
                 <img
                   className="rounded-md h-[250px] object-contain"
-                  src={item.image_section_1.src}
+                  src={item?.image_section_1?.src}
                 />
                 <div className="flex flex-col px-5 gap-2">
-                  <div className="text-2xl font-semibold">{item.heading}</div>
-                  <div className="text-base font-normal">
-                    {item.subHeading.substring(0, 100)}...
-                  </div>
-                  <div className="text-sm font-light">
-                    {item.text_1.substring(0, 1000)}...
+                  <div className="text-2xl font-semibold">{item?.heading?.substring(0,70)}</div>
+                  {/* <div className="text-base font-normal">
+                    {item?.subHeading?.substring(0, 100)}...
+                  </div> */}
+                  <div className="text-lg font-light">
+                    {item?.text_section_1?.substring(3, 300)}...
                   </div>
                 </div>
               </div>
@@ -222,11 +225,12 @@ const page = ({ params }) => {
         <div className="flex flex-col gap-3">
           {recentNewsList?.map((item) => (
             <div
-              key={item.heading}
+              key={item?.heading}
               className="flex flex-col gap-1 items-center justify-center cursor-pointer"
+              onClick={() => router.push("/newsArticle/" + item?._id)}
             >
-              <img className="rounded-md" src={item.image_section_1.src} />
-              <div className="">{item.heading}</div>
+              <img className="rounded-md" src={item?.image_section_1?.src} />
+              <div className="">{item?.heading}</div>
             </div>
           ))}
         </div>

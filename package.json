@@ -17,6 +17,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.11.0",
+    "react-player": "^2.14.0",
     "react-spinners": "^0.13.8",
     "swiper": "^10.3.0"
   },

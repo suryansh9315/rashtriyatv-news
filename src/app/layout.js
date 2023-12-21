@@ -21,13 +21,12 @@ export default function RootLayout({ children }) {
   );
 }
 
-// Single News Page ---- news
-// Route to single News Article  ---- news    
-// Youtube Carousel ---- backend + admin
-// Tags change ---- backend + admin
-// Recent News Article ---- backend
-
 // Responsive ----- news + admin
 // Social Media Links ---- news
-
 // Search box ---- news
+
+
+// Optional
+// Secure Blog Editor with DOMPurify ---- admin
+// Improve Logic for video carousel in admin
+// Improve UI/UX
