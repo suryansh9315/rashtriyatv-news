@@ -68,7 +68,7 @@ const tempBlogs = [
 ];
 
 const page = ({ params }) => {
-  const router = useRouter()
+  const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [newsList, setNewsList] = useState([]);
   const [recentNewsList, setRecentNewsList] = useState([]);
@@ -206,12 +206,19 @@ const page = ({ params }) => {
                   src={item?.image_section_1?.src}
                 />
                 <div className="flex flex-col px-5 gap-2">
-                  <div className="text-2xl font-semibold">{item?.heading?.substring(0,70)}</div>
+                  <div className="text-2xl font-semibold">
+                    {item?.heading?.substring(0, 70)}
+                  </div>
                   {/* <div className="text-base font-normal">
                     {item?.subHeading?.substring(0, 100)}...
                   </div> */}
-                  <div className="text-lg font-light">
-                    {item?.text_section_1?.substring(3, 300)}...
+                  <div className="text-lg font-light max-h-40 overflow-hidden">
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: item?.text_section_1,
+                      }}
+                      className="flex flex-col"
+                    />
                   </div>
                 </div>
               </div>
