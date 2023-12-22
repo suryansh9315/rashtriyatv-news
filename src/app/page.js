@@ -14,57 +14,6 @@ const poppins = Poppins({
   weight: "700",
 });
 
-const tempVideos = [
-  {
-    src: "https://www.youtube.com/embed/Qwm6BSGrOq0?si=WU4ckJVRbc91Cc0S",
-  },
-  {
-    src: "https://www.youtube.com/embed/m5jRsCQfwXA?si=4lE1Nx-HyZJoKDCN",
-  },
-  {
-    src: "https://www.youtube.com/embed/HrnrqYxYrbk?si=IRKmj2OekSvbtMuW",
-  },
-];
-
-const tempBlogs = [
-  {
-    heading: "3 ways to implement infinite scroll in React",
-    subHeading:
-      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
-    image_section_1: {
-      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
-      type: "",
-    },
-  },
-  {
-    heading: "3 ways to implement infinite scroll in React",
-    subHeading:
-      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
-    image_section_1: {
-      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
-      type: "",
-    },
-  },
-  {
-    heading: "3 ways to implement infinite scroll in React",
-    subHeading:
-      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
-    image_section_1: {
-      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
-      type: "",
-    },
-  },
-  {
-    heading: "3 ways to implement infinite scroll in React",
-    subHeading:
-      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
-    image_section_1: {
-      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
-      type: "",
-    },
-  },
-];
-
 export default function Home() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -119,7 +68,6 @@ export default function Home() {
       );
       const data = await res.json();
       if (res.status === 200) {
-        console.log(data)
         setYtList(data.list);
       }
     } catch (error) {

@@ -1,10 +1,8 @@
-"use client";
 import Link from "next/link";
-import React, { useState } from "react";
 import { Bakbak_One } from "next/font/google";
-import { IoIosSearch, IoMdClose } from "react-icons/io";
 import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
+import Search from "./Search";
 
 const bakbak = Bakbak_One({
   subsets: ["latin"],
@@ -12,9 +10,6 @@ const bakbak = Bakbak_One({
 });
 
 const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const handleSearch = () => {};
-
   return (
     <header className="">
       <div className="bg-[#fff] flex justify-between items-center py-10 px-16">
@@ -37,25 +32,7 @@ const Header = () => {
           </div>
         </div>
         <div className="flex items-center justify-center gap-10">
-          <div className="relative flex items-center justify-center shadow-sm rounded-xl">
-            <IoIosSearch
-              className="absolute top-3 left-4 h-6 w-6 cursor-pointer hover:scale-125 transition-all duration-200 text-black"
-              onClick={handleSearch}
-            />
-            <input
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-[#f4f4f4] py-3 px-14 outline-none rounded-xl text-black"
-              placeholder="खोज..."
-              required
-            />
-            <IoMdClose
-              className={`absolute top-[14px] right-4 h-5 w-5 cursor-pointer  hover:scale-150 transition-all duration-300 text-black ${
-                searchQuery.length > 0 ? "flex" : "hidden"
-              }`}
-              onClick={() => setSearchQuery("")}
-            />
-          </div>
+          <Search />
           <div className="flex items-center gap-6">
             <FaFacebookF className="text-blue-600 h-5 w-5 cursor-pointer hover:scale-125 transition-all duration-200 ease-in-out" />
             <RiInstagramFill className="text-pink-500 h-6 w-6 cursor-pointer hover:scale-125 transition-all duration-200 ease-in-out" />

@@ -20,53 +20,6 @@ const tags = [
   "podcast",
 ];
 
-const tempBlogs = [
-  {
-    heading: "3 ways to implement infinite scroll in React",
-    subHeading:
-      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
-    image_section_1: {
-      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
-      type: "",
-    },
-    text_1:
-      "The primary benefit of the generateStaticParams function is its smart retrieval of data. If content is fetched within the generateStaticParams function using a fetch request, the requests are automatically memoized. This means a fetch request with the same arguments across multiple generateStaticParams, Layouts, and Pages will only be made once, which decreases build times.",
-  },
-  {
-    heading: "3 ways to implement infinite scroll in React",
-    subHeading:
-      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
-    image_section_1: {
-      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
-      type: "",
-    },
-    text_1:
-      "The primary benefit of the generateStaticParams function is its smart retrieval of data. If content is fetched within the generateStaticParams function using a fetch request, the requests are automatically memoized. This means a fetch request with the same arguments across multiple generateStaticParams, Layouts, and Pages will only be made once, which decreases build times.",
-  },
-  {
-    heading: "3 ways to implement infinite scroll in React",
-    subHeading:
-      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
-    image_section_1: {
-      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
-      type: "",
-    },
-    text_1:
-      "The primary benefit of the generateStaticParams function is its smart retrieval of data. If content is fetched within the generateStaticParams function using a fetch request, the requests are automatically memoized. This means a fetch request with the same arguments across multiple generateStaticParams, Layouts, and Pages will only be made once, which decreases build times.",
-  },
-  {
-    heading: "3 ways to implement infinite scroll in React",
-    subHeading:
-      "In today’s fast-paced digital landscape, providing a seamless and engaging user experience is more important than ever before.",
-    image_section_1: {
-      src: "https://blog.logrocket.com/wp-content/uploads/2018/02/react-infinite-scroll-implement.png",
-      type: "",
-    },
-    text_1:
-      "The primary benefit of the generateStaticParams function is its smart retrieval of data. If content is fetched within the generateStaticParams function using a fetch request, the requests are automatically memoized. This means a fetch request with the same arguments across multiple generateStaticParams, Layouts, and Pages will only be made once, which decreases build times.",
-  },
-];
-
 const page = ({ params }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);

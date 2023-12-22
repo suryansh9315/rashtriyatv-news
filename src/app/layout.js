@@ -23,8 +23,6 @@ export default function RootLayout({ children }) {
 
 // Responsive ----- news + admin
 // Social Media Links ---- news
-// Search box ---- news
-
 
 // Optional
 // Secure Blog Editor with DOMPurify ---- admin
