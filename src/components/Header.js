@@ -36,7 +36,7 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        <div className="flex items-center justify-center gap-10">
+        <div className="hidden items-center justify-center gap-10">
           <div className="relative flex items-center justify-center shadow-sm rounded-xl">
             <IoIosSearch
               className="absolute top-3 left-4 h-6 w-6 cursor-pointer hover:scale-125 transition-all duration-200 text-black"
@@ -56,12 +56,12 @@ const Header = () => {
               onClick={() => setSearchQuery("")}
             />
           </div>
-          <div className="flex items-center gap-6">
+          {/* <div className="flex items-center gap-6">
             <FaFacebookF className="text-blue-600 h-5 w-5 cursor-pointer hover:scale-125 transition-all duration-200 ease-in-out" />
             <RiInstagramFill className="text-pink-500 h-6 w-6 cursor-pointer hover:scale-125 transition-all duration-200 ease-in-out" />
             <FaYoutube className="text-red-600 h-6 w-6 cursor-pointer hover:scale-125 transition-all duration-200 ease-in-out" />
             <FaTwitter className="text-blue-400 h-6 w-6 cursor-pointer hover:scale-125 transition-all duration-200 ease-in-out" />
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
