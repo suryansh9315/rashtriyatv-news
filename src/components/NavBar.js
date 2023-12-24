@@ -80,7 +80,7 @@ const navItems = [
 
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false); 
+  const [showDropdown, setShowDropdown] = useState(false);
   const pathname = usePathname() || "/";
 
   const handleScroll = () => {
@@ -109,26 +109,26 @@ export default function NavBar() {
   return (
     <div>
       <div
-        className={`bg-[#fff] flex items-center content-evenly justify-evenly lg:items-center xl:items-center flex-col md:flex-row border-t-2 border-b-2 py-3 ${
+        className={`bg-[#fff] flex flex-col md:flex-row py-2 ${
           isScrolled
-            ? "sticky top-0 w-screen items-center justify-evenly z-50"
-            : ""
+            ? "fixed top-0 bg-blue-600 text-white w-screen z-50"
+            : "border-t-2 border-b-2"
         }`}
       >
         <div className="text-gray-600 body-font ">
           {showDropdown ? (
             // Render the dropdown menu when showDropdown is true
-            <div className="md:hidden" onClick={closeDropdown}>
+            <div className="md:hidden flex flex-col items-center justify-center" onClick={closeDropdown}>
               <div
-                className="container flex flex-col items-end text-white"
+                className="container flex flex-col items-end text-black"
                 onClick={toggleDropdown}
               >
-                <RxCross2 className="text-2xl text-black cursor-pointer space-x-2" />
+                <RxCross2 className="text-2xl cursor-pointer space-x-2 mx-2" />
               </div>
               {navItems.map((item) => (
                 <Link
                   key={item.path}
-                  className={`${
+                  className={`block px-[1.92rem]${
                     item.path === pathname ? "text-blue-500" : "text-black"
                   } ${teko.className}`}
                   href={item.path}
@@ -142,22 +142,22 @@ export default function NavBar() {
           ) : (
             // Render the mobile menu icon when showDropdown is false
             <div
-              className="md:hidden container flex flex-col items-end text-white"
+              className="md:hidden container flex flex-col items-end text-black"
               onClick={toggleDropdown}
             >
-              <MdMenu className="text-3xl text-black cursor-pointer pr-2" />
+              <MdMenu className="text-3xl cursor-pointer pr-2" />
             </div>
           )}
-          <nav className="md:px-2 lg:px-4 xl:px-2 w-screen h-7 hidden md:flex lg:flex xl:flex flexWrap md:items-start lg:items-start xl:items-start text-base md:justify-start lg:justify-center xl:justify-center xl:mb-2">
+          <nav className="w-screen h-7 hidden md:flex  text-base justify-evenly duration-300 ease-in">
             {navItems.map((item) => (
               <Link
                 key={item.path}
-                className={`${
+                className={` ${
                   item.path === pathname ? "text-blue-500" : "text-black"
                 } ${teko.className}`}
                 href={item.path}
               >
-                <div className="hover:text-blue-500 duration-300 ease-in-out text-lg">
+                <div className="hover:text-blue-500 duration-300 ease-in-out text-sm lg:text-lg ">
                   {item.name}
                 </div>
               </Link>
