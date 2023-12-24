@@ -117,7 +117,7 @@ export default function NavBar() {
       >
         <div className="text-gray-600 body-font ">
           {showDropdown ? (
-            // Render the dropdown menu when showDropdown is true
+          
             <div className="md:hidden flex flex-col items-center justify-center" onClick={closeDropdown}>
               <div
                 className="container flex flex-col items-end text-black"
@@ -128,12 +128,12 @@ export default function NavBar() {
               {navItems.map((item) => (
                 <Link
                   key={item.path}
-                  className={`block px-[1.92rem]${
-                    item.path === pathname ? "text-blue-500" : "text-black"
+                  className={`block px-[1.92rem] ${
+                    item.path === pathname ? "text-orange-500" : "text-black"
                   } ${teko.className}`}
                   href={item.path}
                 >
-                  <div className="hover:text-blue-500 duration-300 ease-in-out text-lg">
+                  <div className="duration-300 ease-in-out text-lg hover:font-bold">
                     {item.name}
                   </div>
                 </Link>
@@ -153,7 +153,7 @@ export default function NavBar() {
               <Link
                 key={item.path}
                 className={` ${
-                  item.path === pathname ? "text-blue-500" : "text-black"
+                  item.path === pathname ? "text-orange-500" : "text-black"
                 } ${teko.className}`}
                 href={item.path}
               >
