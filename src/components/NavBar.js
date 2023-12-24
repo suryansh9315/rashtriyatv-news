@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Akshar } from "next/font/google";
-import { MdMenu } from "react-icons/md"; //import menu icon
+import { MdMenu } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 
 const teko = Akshar({
@@ -109,10 +109,10 @@ export default function NavBar() {
   return (
     <div>
       <div
-        className={`bg-[#fff] flex flex-col md:flex-row py-2 ${
+        className={`flex flex-col md:flex-row py-2 ${
           isScrolled
-            ? "fixed top-0 bg-blue-600 text-white w-screen z-50"
-            : "border-t-2 border-b-2"
+            ? "fixed top-0 bg-blue-600 w-screen z-50"
+            : "border-t-2 border-b-2 bg-[#fff]"
         }`}
       >
         <div className="text-gray-600 body-font ">
@@ -120,7 +120,7 @@ export default function NavBar() {
           
             <div className="md:hidden flex flex-col items-center justify-center" onClick={closeDropdown}>
               <div
-                className="container flex flex-col items-end text-black"
+                className="container flex flex-col items-end text-white"
                 onClick={toggleDropdown}
               >
                 <RxCross2 className="text-2xl cursor-pointer space-x-2 mx-2" />
@@ -129,7 +129,7 @@ export default function NavBar() {
                 <Link
                   key={item.path}
                   className={`block px-[1.92rem] ${
-                    item.path === pathname ? "text-orange-500" : "text-black"
+                    item.path === pathname ? "text-orange-400" : "text-white"
                   } ${teko.className}`}
                   href={item.path}
                 >
@@ -140,7 +140,6 @@ export default function NavBar() {
               ))}
             </div>
           ) : (
-            // Render the mobile menu icon when showDropdown is false
             <div
               className="md:hidden container flex flex-col items-end text-black"
               onClick={toggleDropdown}
@@ -153,11 +152,11 @@ export default function NavBar() {
               <Link
                 key={item.path}
                 className={` ${
-                  item.path === pathname ? "text-orange-500" : "text-black"
+                  item.path === pathname ? "text-orange-400" : "text-black"
                 } ${teko.className}`}
                 href={item.path}
               >
-                <div className="hover:text-blue-500 duration-300 ease-in-out text-sm lg:text-lg ">
+                <div className="hover:text-blue-500 duration-300 ease-in-out hover:scale-90 text-sm lg:text-lg ">
                   {item.name}
                 </div>
               </Link>

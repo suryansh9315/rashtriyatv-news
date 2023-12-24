@@ -76,7 +76,7 @@ const Footer = () => {
   const pathname = usePathname() || "/";
 
   return (
-    <div className="bg-[#fff] shadow rounded-xl pt-20 pb-28 px-10 flex justify-center gap-28 flex-wrap">
+    <div className="bg-[#fff] shadow rounded-xl p-10 flex justify-center gap-14 lg:gap-28 flex-wrap">
       <div className="w-[300px] flex flex-col gap-5">
         <img src="/logo1.jpg" className="w-40 object-contain" />
         <div className="text-black">
