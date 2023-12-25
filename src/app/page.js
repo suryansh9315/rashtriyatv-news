@@ -37,7 +37,7 @@ export default function Home() {
   const fetchNewsCategory = async (tag, setList) => {
     try {
       const res = await fetch(
-        "http://rashtriya-tv-nodejs-env.eba-4gfrfqri.us-east-1.elasticbeanstalk.com/api/blogs/getBlogsByTag/" +
+        "https://api.rashtriyatv.com/api/blogs/getBlogsByTag/" +
           tag,
         {
           method: "GET",
@@ -58,7 +58,7 @@ export default function Home() {
   const fetchYtCarousel = async () => {
     try {
       const res = await fetch(
-        "http://rashtriya-tv-nodejs-env.eba-4gfrfqri.us-east-1.elasticbeanstalk.com/api/blogs/getYtList",
+        "https://api.rashtriyatv.com/api/blogs/getYtList",
         {
           method: "GET",
           headers: {

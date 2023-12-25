@@ -14,7 +14,7 @@ const page = ({ params }) => {
   const fetchNews = async () => {
     try {
       const res = await fetch(
-        "http://rashtriya-tv-nodejs-env.eba-4gfrfqri.us-east-1.elasticbeanstalk.com/api/blogs/getBlogById/" +
+        "https://api.rashtriyatv.com/api/blogs/getBlogById/" +
           tag,
         {
           method: "GET",
@@ -24,7 +24,7 @@ const page = ({ params }) => {
         }
       );
       const rRes = await fetch(
-        "http://rashtriya-tv-nodejs-env.eba-4gfrfqri.us-east-1.elasticbeanstalk.com/api/blogs/getRecent",
+        "https://api.rashtriyatv.com/api/blogs/getRecent",
         {
           method: "GET",
           headers: {
