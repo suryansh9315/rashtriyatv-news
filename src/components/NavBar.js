@@ -117,10 +117,14 @@ export default function NavBar() {
       >
         <div className="text-gray-600 body-font ">
           {showDropdown ? (
-          
-            <div className="md:hidden flex flex-col items-center justify-center" onClick={closeDropdown}>
+            <div
+              className="md:hidden flex flex-col items-center justify-center"
+              onClick={closeDropdown}
+            >
               <div
-                className="container flex flex-col items-end text-white"
+                className={`container flex flex-col items-end ${
+                  isScrolled ? "text-white" : "text-black"
+                }`}
                 onClick={toggleDropdown}
               >
                 <RxCross2 className="text-2xl cursor-pointer space-x-2 mx-2" />
@@ -129,11 +133,21 @@ export default function NavBar() {
                 <Link
                   key={item.path}
                   className={`block px-[1.92rem] ${
-                    item.path === pathname ? "text-orange-400" : "text-white"
+                    isScrolled
+                      ? item.path === pathname
+                        ? "text-orange-400"
+                        : "text-white"
+                      : item.path === pathname
+                      ? "text-orange-400"
+                      : "text-black"
                   } ${teko.className}`}
                   href={item.path}
                 >
-                  <div className="duration-300 ease-in-out text-lg hover:font-bold">
+                  <div
+                    className={`duration-300 ease-in-out text-lg ${
+                      isScrolled ? "hover:text-gray-400" : "hover:text-blue-500"
+                    }`}
+                  >
                     {item.name}
                   </div>
                 </Link>
@@ -141,7 +155,7 @@ export default function NavBar() {
             </div>
           ) : (
             <div
-              className="md:hidden container flex flex-col items-end text-black"
+              className={`md:hidden container flex flex-col items-end ${isScrolled ? "text-white" : "text-black"}`}
               onClick={toggleDropdown}
             >
               <MdMenu className="text-3xl cursor-pointer pr-2" />
@@ -151,12 +165,22 @@ export default function NavBar() {
             {navItems.map((item) => (
               <Link
                 key={item.path}
-                className={` ${
-                  item.path === pathname ? "text-orange-400" : "text-black"
-                } ${teko.className}`}
+                className={`${teko.className}`}
                 href={item.path}
               >
-                <div className="hover:text-blue-500 duration-300 ease-in-out hover:scale-90 text-sm lg:text-lg ">
+                <div
+                  className={`${
+                    isScrolled ? "hover:text-gray-400" : "hover:text-blue-500"
+                  } ${
+                    isScrolled
+                      ? item.path === pathname
+                        ? "text-orange-400"
+                        : "text-white"
+                      : item.path === pathname
+                      ? "text-orange-400"
+                      : "text-black"
+                  } duration-300 ease-in-out hover:scale-90 text-sm lg:text-lg`}
+                >
                   {item.name}
                 </div>
               </Link>

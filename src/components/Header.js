@@ -38,38 +38,7 @@ const Header = () => {
         <div className="p-2 md:p-10">
           <div className="flex justify-end items-center">
             <div className="flex md:place-items-end md:justify-end">
-              <form>
-                <div className="relative w-full md:w-auto md:items-center">
-                  <input
-                    type="search"
-                    id="search-dropdown"
-                    className="block p-2.5 w-full md:w-auto z-24 text-base text-white bg-zinc-200 border rounded-lg border-l-gray-700 border-gray-600 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-500"
-                    placeholder="खोज..."
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-blue-600 rounded-r-lg border border-blue-800 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800"
-                  >
-                    <svg
-                      className="w-4 h-4 hover:animate-ping"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                      />
-                    </svg>
-                    <span className="sr-only">Search</span>
-                  </button>
-                </div>
-              </form>
+              <Search />
             </div>
           </div>
         </div>

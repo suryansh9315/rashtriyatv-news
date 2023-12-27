@@ -34,7 +34,7 @@ const Search = () => {
 
   return (
     <div>
-      <div className="relative flex items-center justify-center shadow-sm rounded-xl">
+      <div className="relative flex items-center justify-center shadow rounded-xl">
         <IoIosSearch
           className="absolute top-3 left-4 h-6 w-6 cursor-pointer hover:scale-125 transition-all duration-200 text-black"
           onClick={() => handleSearch(searchQuery)}
@@ -45,7 +45,7 @@ const Search = () => {
             handleSearch(e.target.value);
             setSearchQuery(e.target.value);
           }}
-          className="bg-[#f4f4f4] py-3 px-14 outline-none rounded-xl text-black"
+          className="bg-[#fff] py-3 px-14 outline-none rounded-xl text-black"
           placeholder="खोज..."
           required
         />
@@ -60,7 +60,7 @@ const Search = () => {
         />
       </div>
       {searchResult.length > 0 && (
-        <div className="max-h-96 w-[350px] absolute bg-[#f4f4f4] z-10 shadow-2xl rounded-xl mt-2 overflow-y-scroll overflow-x-hidden flex flex-col gap-3 px-3 py-3">
+        <div className="max-h-96 w-[300px] absolute bg-[#f4f4f4] z-10 shadow-2xl rounded-xl mt-2 overflow-y-scroll overflow-x-hidden flex flex-col gap-3 px-3 py-3">
           {searchResult?.map((blog) => (
             <div className="bg-[#fff] px-3 py-3 rounded-xl shadow-sm">
               <a
