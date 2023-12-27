@@ -58,7 +58,7 @@ const navItems = [
   },
   {
     path: "/news/spiritual",
-    name: "अध्यात्",
+    name: "अध्यात्म",
   },
   {
     path: "/news/media",
