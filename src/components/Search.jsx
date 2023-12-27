@@ -10,7 +10,7 @@ const Search = () => {
     if (query.length > 2) {
       try {
         const res = await fetch(
-          "http://rashtriya-tv-nodejs-env.eba-4gfrfqri.us-east-1.elasticbeanstalk.com/api/blogs/searchBlogs",
+          "https://api.rashtriyatv.com/api/blogs/searchBlogs",
           {
             method: "POST",
             headers: {
