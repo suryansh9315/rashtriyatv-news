@@ -13,10 +13,7 @@ const YoutubeSlider = ({ list }) => {
         spaceBetween={30}
         loop={true}
         delay={30}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
+        autoplay={false}
         pagination={{
           clickable: true,
         }}

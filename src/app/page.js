@@ -79,9 +79,9 @@ export default function Home() {
     await fetchYtCarousel()
     await fetchNewsCategory("viral", setViral);
     await fetchNewsCategory("national", setNational);
+    setLoading(false);
     await fetchNewsCategory("state", setState);
     await fetchNewsCategory("crime", setCrime);
-    setLoading(false);
     await fetchNewsCategory("politics", setPolitics);
     await fetchNewsCategory("sports", setSports);
     await fetchNewsCategory("business", setBusiness);
