@@ -15,7 +15,7 @@ const teko = Akshar({
 const navItems = [
   {
     path: "/",
-    name: "घर",
+    name: "होम",
   },
   {
     path: "/news/national",
