@@ -146,7 +146,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <NewsSection
+      <NewsCarousel
         title={"राष्ट्रीय समाचार"}
         list={national}
         customStyles={"text-[#22C55E]"}
@@ -158,7 +158,7 @@ export default function Home() {
         customStyles={"text-[#EF4444]"}
         link={"/news/state"}
       />
-      <NewsSection
+      <NewsCarousel
         title={"अपराध"}
         list={crime}
         customStyles={"text-[#3B82F6]"}
@@ -170,7 +170,7 @@ export default function Home() {
         customStyles={"text-[#EC4899]"}
         link={"/news/politics"}
       />
-      <NewsSection
+      <NewsCarousel
         title={"खेल"}
         list={sports}
         customStyles={"text-[#71717A]"}
@@ -182,7 +182,7 @@ export default function Home() {
         customStyles={"text-[#22C55E]"}
         link={"/news/business"}
       />
-      <NewsSection
+      <NewsCarousel
         title={"रोजगार"}
         list={employment}
         customStyles={"text-[#EAB308]"}
@@ -194,7 +194,7 @@ export default function Home() {
         customStyles={"text-[#14B8A6]"}
         link={"/news/entertainment"}
       />
-      <NewsSection
+      <NewsCarousel
         title={"हेल्थ"}
         list={health}
         customStyles={"text-[#8B5CF6]"}
@@ -206,7 +206,7 @@ export default function Home() {
         customStyles={"text-[#F43F5E]"}
         link={"/news/spiritual"}
       />
-      <NewsSection
+      <NewsCarousel
         title={"मीडिया"}
         list={media}
         customStyles={"text-[#000]"}
@@ -218,7 +218,7 @@ export default function Home() {
         customStyles={"text-[#F97316]"}
         link={"/news/author"}
       />
-      <NewsSection
+      <NewsCarousel
         title={"पॉडकास्ट"}
         list={podcast}
         customStyles={"text-[#10B981]"}

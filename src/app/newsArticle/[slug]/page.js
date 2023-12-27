@@ -74,69 +74,71 @@ const page = ({ params }) => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto flex justify-center gap-10 min-h-screen py-10">
-      <div className="flex flex-col gap-5 bg-[#fff] px-8 py-8 rounded-xl shadow-sm w-full">
-        <div className="font-semibold text-3xl">{newsItem?.heading}</div>
-        <div className="font-extralight text-xl">{newsItem?.subHeading}</div>
-        <div className="my-2">
+    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center gap-5 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col gap-5 bg-[#fff] px-8 py-8 rounded-xl shadow-sm w-full md:w-[60%]">
+      <div className="font-semibold text-3xl">{newsItem?.heading}</div>
+      <div className="font-extralight text-xl">{newsItem?.subHeading}</div>
+      <div className="my-2">
+        <img
+          src={newsItem?.image_section_1?.src}
+          alt="Image does not exist."
+          className="h-full w-full object-cover"
+        />
+      </div>
+      <div className="font-base text-xl">
+        <div
+          dangerouslySetInnerHTML={{ __html: newsItem?.text_section_1 }}
+          className="flex flex-col"
+        />
+      </div>
+      <div className="flex items-center justify-center my-2">
+        {newsItem?.image_section_2?.type === "image" && (
           <img
-            src={newsItem?.image_section_1?.src}
+            src={newsItem?.image_section_2?.src}
             alt="Image does not exist."
+            className="h-full w-full object-cover"
+          />
+        )}
+        {newsItem?.image_section_2?.type === "yt_video" && (
+          <ReactPlayer
+            url={newsItem?.image_section_2?.src}
             className="h-full w-full"
           />
-        </div>
-        <div className="font-base text-xl">
-          <div
-            dangerouslySetInnerHTML={{ __html: newsItem?.text_section_1 }}
-            className="flex flex-col"
+        )}
+        {newsItem?.image_section_2?.type === "image_cloud" && (
+          <img
+            src={newsItem?.image_section_2?.src}
+            alt="Image does not exist."
+            className="h-full w-full object-cover"
           />
-        </div>
-        <div className="flex items-center justify-center my-2">
-          {newsItem?.image_section_2?.type === "image" && (
-            <img
-              src={newsItem?.image_section_2?.src}
-              alt="Image does not exist."
-              className="h-full w-full"
-            />
-          )}
-          {newsItem?.image_section_2?.type === "yt_video" && (
-            <ReactPlayer
-              url={newsItem?.image_section_2?.src}
-              className="h-full w-full"
-            />
-          )}
-          {newsItem?.image_section_2?.type === "image_cloud" && (
-            <img
-              src={newsItem?.image_section_2?.src}
-              alt="Image does not exist."
-              className="h-full w-full"
-            />
-          )}
-        </div>
-        <div className="font-base text-xl">
-          <div
-            dangerouslySetInnerHTML={{ __html: newsItem?.text_section_2 }}
-            className="flex flex-col"
-          />
-        </div>
+        )}
       </div>
-      <div className="max-w-[300px] bg-[#fff] px-5 py-5 flex flex-col gap-4 rounded-md shadow-sm h-full">
-        <div className="font-semibold text-xl">ताज़ा ख़बर</div>
-        <hr />
-        <div className="flex flex-col gap-3">
-          {recentNewsList?.map((item) => (
-            <div
-              key={item.heading}
-              className="flex flex-col gap-1 items-center justify-center cursor-pointer"
-              onClick={() => router.push("/newsArticle/" + item?._id)}
-            >
-              <img className="rounded-md" src={item.image_section_1.src} />
-              <div className="">{item.heading}</div>
-            </div>
-          ))}
-        </div>
+      <div className="font-base text-xl">
+        <div
+          dangerouslySetInnerHTML={{ __html: newsItem?.text_section_2 }}
+          className="flex flex-col"
+        />
       </div>
     </div>
+    <div className="max-w-[300px] w-full bg-[#fff] px-5 py-5 flex flex-col gap-4 rounded-md shadow-sm">
+      <div className="font-semibold text-xl">ताज़ा ख़बर</div>
+      <hr />
+      <div className="flex flex-col gap-3">
+        {recentNewsList?.map((item) => (
+          <div
+            key={item.heading}
+            className="flex flex-col gap-1 items-center justify-center cursor-pointer"
+            onClick={() => router.push("/newsArticle/" + item?._id)}
+          >
+            <img className="rounded-md" src={item.image_section_1.src} />
+            <div className="">{item.heading}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+  
   );
 };
 

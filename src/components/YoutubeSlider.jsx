@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 
 const YoutubeSlider = ({ list }) => {
   return (
-    <div className=" w-[450px] h-[253px] sm:w-[600px] sm:h-[338px] md:w-[800px] md:h-[450px]">
+    <div className="w-full sm:w-[600px] md:w-[800px] mx-auto">
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -26,8 +26,7 @@ const YoutubeSlider = ({ list }) => {
         {list?.map((video) => (
           <SwiperSlide key={video?.yt}>
             <iframe
-              className="rounded-lg "
-              width="800"
+              className="rounded-lg w-full"
               height="450"
               src={video?.yt}
               title="YouTube video player"

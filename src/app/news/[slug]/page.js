@@ -148,38 +148,36 @@ const page = ({ params }) => {
         <hr />
         <div className="flex flex-col gap-5 my-2">
           {newsList?.map((item, index) => (
-            <>
-              <div
-                key={item?.heading}
-                className="flex justify-center cursor-pointer h-[250px]"
-                onClick={() => router.push("/newsArticle/" + item?._id)}
-              >
-                <img
-                  className="rounded-md h-[250px] object-contain"
-                  src={item?.image_section_1?.src}
-                />
-                <div className="flex flex-col px-5 gap-2">
-                  <div className="text-2xl font-semibold">
-                    {item?.heading?.substring(0, 70)}
-                  </div>
-                  {/* <div className="text-base font-normal">
-                    {item?.subHeading?.substring(0, 100)}...
-                  </div> */}
-                  <div className="text-lg font-light max-h-40 overflow-hidden">
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: item?.text_section_1,
-                      }}
-                      className="flex flex-col"
-                    />
-                  </div>
+            <div
+              key={item?.heading}
+              className="flex flex-col gap-2 cursor-pointer"
+              onClick={() => router.push("/newsArticle/" + item?._id)}
+            >
+              <img
+                className="rounded-md object-cover h-48 md:h-[250px]"
+                src={item?.image_section_1?.src}
+                alt={item?.heading}
+              />
+              <div className="flex flex-col px-4 md:px-5 gap-2">
+                <div className="text-2xl font-semibold md:text-xl">
+                  {item?.heading?.substring(0, 70)}
+                </div>
+                <div className="text-lg font-light line-clamp-5 md:line-clamp-none">
+                  {/* Adjust the line-clamp value based on your design */}
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: item?.text_section_1,
+                    }}
+                    className="flex flex-col"
+                  />
                 </div>
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
-      <div className="max-w-[300px] bg-[#fff] px-5 py-5 flex flex-col gap-4 rounded-md shadow-sm h-full">
+
+      <div className="max-w-[300px] hidden md:flex bg-[#fff] px-5 py-5 flex-col gap-4 rounded-md shadow-sm h-full">
         <div className="font-semibold text-xl">ताज़ा ख़बर</div>
         <hr />
         <div className="flex flex-col gap-3">
@@ -189,8 +187,8 @@ const page = ({ params }) => {
               className="flex flex-col gap-1 items-center justify-center cursor-pointer"
               onClick={() => router.push("/newsArticle/" + item?._id)}
             >
-              <img className="rounded-md" src={item?.image_section_1?.src} />
-              <div className="">{item?.heading}</div>
+              <img className="rounded-md" src={item?.image_section_1?.src} alt={item?.heading} />
+              <div className="text-sm md:text-base">{item?.heading}</div>
             </div>
           ))}
         </div>

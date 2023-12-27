@@ -122,16 +122,16 @@ const Footer = () => {
       <div className="w-[300px] flex flex-col gap-5">
         <div className="font-semibold text-xl text-black">Follow Us On</div>
         <div className="flex items-center gap-5">
-          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer">
-            <FaFacebookF className="text-blue-600 h-5 w-5" />
-          </div>
-          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer">
+        <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer transform transition-transform hover:scale-110">
+      <FaFacebookF className="text-blue-600 h-5 w-5" href="https://www.facebook.com/RashtriyaTv?mibextid=ZbWKwL" />
+    </div>
+    <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer transform transition-transform hover:scale-110">
             <FaTwitter className="text-blue-600 h-5 w-5" />
           </div>
-          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer">
+          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer transform transition-transform hover:scale-110">
             <RiInstagramFill className="text-blue-600 h-5 w-5" />
           </div>
-          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer">
+          <div className="border-2 rounded-full h-10 w-10 flex items-center justify-center cursor-pointer transform transition-transform hover:scale-110">
             <FaYoutube className="text-blue-600 h-5 w-5" />
           </div>
         </div>
