@@ -23,7 +23,7 @@ const navItems = [
   },
   {
     path: "/news/state",
-    name: "राज्य खबर",
+    name: "राज्य",
   },
   {
     path: "/news/crime",

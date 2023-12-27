@@ -153,7 +153,7 @@ export default function Home() {
         link={"/news/national"}
       />
       <NewsCarousel
-        title={"राज्य खबर"}
+        title={"राज्य"}
         list={state}
         customStyles={"text-[#EF4444]"}
         link={"/news/state"}
@@ -201,7 +201,7 @@ export default function Home() {
         link={"/news/health"}
       />
       <NewsCarousel
-        title={"अध्यात्"}
+        title={"अध्यात्म"}
         list={spiritual}
         customStyles={"text-[#F43F5E]"}
         link={"/news/spiritual"}

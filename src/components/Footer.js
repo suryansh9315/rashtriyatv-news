@@ -16,7 +16,7 @@ const navLinks = [
     link: "/news/national",
   },
   {
-    title: "राज्य खबर",
+    title: "राज्य",
     link: "/news/state",
   },
   {
@@ -50,7 +50,7 @@ const navLinks = [
   },
 
   {
-    title: "अध्यात्",
+    title: "अध्यात्म",
     link: "/news/spiritual",
   },
   {

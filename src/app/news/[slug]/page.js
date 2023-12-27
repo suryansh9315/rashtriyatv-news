@@ -32,7 +32,7 @@ const page = ({ params }) => {
       return "राष्ट्रीय समाचार";
     }
     if (slug === "state") {
-      return "राज्य खबर";
+      return "राज्य";
     }
     if (slug === "crime") {
       return "अपराध";
@@ -56,7 +56,7 @@ const page = ({ params }) => {
       return "हेल्थ";
     }
     if (slug === "spiritual") {
-      return "अध्यात्";
+      return "अध्यात्म";
     }
     if (slug === "media") {
       return "मीडिया";
