@@ -15,6 +15,7 @@ import {
   XIcon,
 } from "react-share";
 import { ClipLoader } from "react-spinners";
+import { format } from 'date-fns'
 
 const page = ({ params }) => {
   const router = useRouter();
@@ -122,6 +123,7 @@ const page = ({ params }) => {
           </div>
         </div>
         <div className="flex flex-col gap-5 bg-[#fff] px-8 py-8 rounded-xl shadow-sm w-full">
+          <div className="font-light mb-3">{format(new Date(newsItem?.createdAt), "MMM. d, yyyy, h:m a")}</div>
           <div className="font-semibold text-3xl">{newsItem?.heading}</div>
           <div className="font-extralight text-xl">{newsItem?.subHeading}</div>
           <div className="my-2">

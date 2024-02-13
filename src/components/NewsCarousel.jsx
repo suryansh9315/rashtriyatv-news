@@ -33,10 +33,9 @@ const NewsCarousel = ({ title, list, link, customStyles }) => {
             delay: 3000,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay]}
-          className=""
+          navigation={true}
+          modules={[Navigation, Autoplay]}
           breakpoints={{
-            // Responsive breakpoints
             640: {
               slidesPerView: 2,
             },
@@ -47,6 +46,7 @@ const NewsCarousel = ({ title, list, link, customStyles }) => {
               slidesPerView: 3,
             },
           }}
+          className=""
         >
           {list?.map((newsItem) => (
             <SwiperSlide
@@ -54,10 +54,12 @@ const NewsCarousel = ({ title, list, link, customStyles }) => {
               onClick={() => router.push("/newsArticle/" + newsItem._id)}
             >
               <div className="flex flex-col gap-2">
+                <div className="h-[280px]">
                 <img
                   src={newsItem?.image_section_1.src}
-                  className="w-full object-contain rounded-md"
-                />
+                  className="rounded-md"
+                  />
+                  </div>
                 <div className="font-medium text-lg">
                   {newsItem?.subHeading}
                 </div>
