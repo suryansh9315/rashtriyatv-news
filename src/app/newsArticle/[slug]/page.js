@@ -17,28 +17,6 @@ import {
 import { ClipLoader } from "react-spinners";
 import { format } from "date-fns";
 
-export async function generateMetadata({ params, searchParams }, parent) {
-  const tag = params.slug;
-  const res = await fetch(
-    "https://api.rashtriyatv.com/api/blogs/getBlogById/" + tag,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  const data = await res.json();
-  const blog = data.blog;
-
-  return {
-    title: blog?.heading,
-    openGraph: {
-      images: [blog?.image_section_1?.src],
-    },
-  };
-}
-
 const page = ({ params }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
