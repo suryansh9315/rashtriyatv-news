@@ -15,7 +15,8 @@ import {
   XIcon,
 } from "react-share";
 import { ClipLoader } from "react-spinners";
-import { format } from 'date-fns'
+import { format } from "date-fns";
+import Head from "next/head";
 
 const page = ({ params }) => {
   const router = useRouter();
@@ -89,9 +90,14 @@ const page = ({ params }) => {
 
   return (
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center gap-5 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <Head>
+        <meta property="og:image" content={newsItem?.image_section_1?.src} />
+      </Head>
       <div className="w-full md:w-[60%] flex flex-col gap-5">
         <div className="w-full bg-[#fff] px-4 lg:px-8 py-4 lg:py-6 shadow-sm rounded-xl flex gap-4 min-[450px]:gap-0 items-start min-[450px]:items-center justify-between flex-col min-[450px]:flex-row">
-          <div className="font-normal text-base lg:text-xl">Share this news :</div>
+          <div className="font-normal text-base lg:text-xl">
+            Share this news :
+          </div>
           <div className="flex gap-3 lg:gap-4">
             <div className="cursor-pointer">
               <FacebookShareButton url={shareUrl}>
@@ -114,16 +120,16 @@ const page = ({ params }) => {
               </WhatsappShareButton>
             </div>
             <div className="cursor-pointer">
-              <LinkedinShareButton
-                url={shareUrl}
-              >
+              <LinkedinShareButton url={shareUrl}>
                 <LinkedinIcon className="h-10 lg:h-12 w-10 lg:w-12" round />
               </LinkedinShareButton>
             </div>
           </div>
         </div>
         <div className="flex flex-col gap-5 bg-[#fff] px-8 py-8 rounded-xl shadow-sm w-full">
-          <div className="font-light mb-3">{format(new Date(newsItem?.createdAt), "MMM. d, yyyy, h:m a")}</div>
+          <div className="font-light mb-3">
+            {format(new Date(newsItem?.createdAt), "MMM. d, yyyy, h:m a")}
+          </div>
           <div className="font-semibold text-3xl">{newsItem?.heading}</div>
           <div className="font-extralight text-xl">{newsItem?.subHeading}</div>
           <div className="my-2">
