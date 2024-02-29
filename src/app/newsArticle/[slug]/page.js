@@ -24,7 +24,7 @@ const page = ({ params }) => {
   const [recentNewsList, setRecentNewsList] = useState([]);
   const tag = params.slug;
   const shareUrl = `https://www.rashtriyatv.com/newsArticle/${tag}`;
-  const title = "RashtriyaTV";
+  const title = newsItem?.heading;
 
   const fetchNews = async () => {
     try {
