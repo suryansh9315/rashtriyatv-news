@@ -16,7 +16,28 @@ import {
 } from "react-share";
 import { ClipLoader } from "react-spinners";
 import { format } from "date-fns";
-import Head from "next/head";
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  const tag = params.slug;
+  const res = await fetch(
+    "https://api.rashtriyatv.com/api/blogs/getBlogById/" + tag,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const data = await res.json();
+  const blog = data.blog;
+
+  return {
+    title: blog?.heading,
+    openGraph: {
+      images: [blog?.image_section_1?.src],
+    },
+  };
+}
 
 const page = ({ params }) => {
   const router = useRouter();
@@ -90,9 +111,6 @@ const page = ({ params }) => {
 
   return (
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center gap-5 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
-      <Head>
-        <meta property="og:image" content={newsItem?.image_section_1?.src} />
-      </Head>
       <div className="w-full md:w-[60%] flex flex-col gap-5">
         <div className="w-full bg-[#fff] px-4 lg:px-8 py-4 lg:py-6 shadow-sm rounded-xl flex gap-4 min-[450px]:gap-0 items-start min-[450px]:items-center justify-between flex-col min-[450px]:flex-row">
           <div className="font-normal text-base lg:text-xl">
